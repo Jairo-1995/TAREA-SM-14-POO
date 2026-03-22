@@ -1,9 +1,15 @@
+#==============================================
+# Proyecto: Sistema de Registro de Visitas
+# Archivo: visitante.py
+#==============================================
+
 class Visitante:
-    def __init__(self, cedula: str, nombre: str, motivo: str):
+    # Constructor con validaciones para cédula y nombre
+    def __init__(self, cedula: str, nombre: str, motivo: str):#
         self.cedula = cedula
         self.nombre = nombre
         self.motivo = motivo
-    
+# setters y getters con validaciones para cada atributo   
     @property
     def cedula(self) -> str:
         return self._cedula

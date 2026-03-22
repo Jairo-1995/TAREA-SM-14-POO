@@ -1,9 +1,16 @@
+#============================================
+# Proyecto: Sistema de Registro de Visitas
+# Archivo: visita_servicio.py
+#============================================
 from modelos.visitante import Visitante
 from typing import List, Optional
 
 class VisitaServicio:
+    # Manejador de visitantes con operaciones CRUD
     def __init__(self):
-        self._visitantes: List[Visitante] = []
+        self._visitantes: List[Visitante] = [] # Almacenamiento en memoria de visitantes
+   
+    # CRUD: registrar, Actualizar, Eliminar
 
     def registrar_visitante(self, visitante: Visitante) -> None:
         if self._obtener_por_cedula(visitante.cedula):
@@ -12,7 +19,7 @@ class VisitaServicio:
 
     def obtener_todos(self) -> List[Visitante]:
         return self._visitantes
-
+# Actualización y eliminación basadas en cédula (identificador único)
     def actualizar_visitante(self, visitante_actualizado: Visitante) -> None:
         for i, v in enumerate(self._visitantes):
             if v.cedula == visitante_actualizado.cedula:
@@ -26,7 +33,7 @@ class VisitaServicio:
             self._visitantes.remove(visitante)
         else:
             raise ValueError("El visitante no existe.")
-
+        
     def _obtener_por_cedula(self, cedula: str) -> Optional[Visitante]:
         for v in self._visitantes:
             if v.cedula == cedula:

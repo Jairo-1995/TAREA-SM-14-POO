@@ -1,7 +1,9 @@
+#==================
+#ui tkinter
+#==================
 import tkinter as tk
 from tkinter import ttk, messagebox
 from modelos.visitante import Visitante
-
 
 class AppVisitas(tk.Tk):
     def __init__(self, servicio):
@@ -99,7 +101,7 @@ class AppVisitas(tk.Tk):
 
         except Exception as e:
             messagebox.showwarning("Error", str(e))
-
+            
     def _actualizar(self):
         seleccion = self.tabla.selection()
 
